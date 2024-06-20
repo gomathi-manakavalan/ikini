@@ -4,6 +4,7 @@ package com.translator.ikini.service;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.translator.ikini.config.OpenAIConfig;
 import com.translator.ikini.request.OpenAIMessage;
@@ -30,6 +31,9 @@ public class OpenAIService {
     @Autowired
     private OpenAIConfig openAIConfig;
 
+    @Autowired
+    private PublishTextSMS publishTextSMS;
+
     private final OkHttpClient client = new OkHttpClient();
 
     public String getChatGPTResponse(String translationText) throws IOException {
@@ -50,8 +54,9 @@ public class OpenAIService {
 
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-
-            return response.body().string();
+            String responseJson = response.body().string();
+            publishTextSMS.sendTextSMS(readResponse(responseJson), "16476714484");
+            return responseJson;
         }
     }
 
@@ -68,5 +73,30 @@ public class OpenAIService {
         OpenAIRequest openAIRequest = new OpenAIRequest(MODAL, openAIMessageList);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(openAIRequest);
+    }
+
+    /**
+     * This will extract the translated text.
+     * @param responseJson
+     * @return
+     */
+    public String readResponse(String responseJson){
+        ObjectMapper objectMapper = new ObjectMapper();
+        String responseTranslatedText = null;
+        try {
+            JsonNode rootNode = objectMapper.readTree(responseJson);
+            JsonNode choicesNode = rootNode.path("choices");
+            if (choicesNode.isArray() && choicesNode.size() > 0) {
+                JsonNode messageNode = choicesNode.get(0).path("message");
+                String content = messageNode.path("content").asText();
+                System.out.println("Message Content: " + content);
+                responseTranslatedText = content;
+            } else {
+                System.out.println("No choices available in the response.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return responseTranslatedText;
     }
 }

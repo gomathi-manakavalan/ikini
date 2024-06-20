@@ -1,0 +1,28 @@
+curl --location 'http://localhost:8080/api/chatgpt/ask' \
+--header 'Content-Type: application/json' \
+--form 'translateText="கற்றலின், கேட்டலே நன்று"'
+
+
+{
+  "id": "chatcmpl-9c2O94nVIpO4yqqUPcClO8FkgQacw",
+  "object": "chat.completion",
+  "created": 1718852673,
+  "model": "gpt-3.5-turbo-0125",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "In learning, asking questions is beneficial."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 61,
+    "completion_tokens": 8,
+    "total_tokens": 69
+  },
+  "system_fingerprint": null
+}

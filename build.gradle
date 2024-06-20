@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+	implementation platform('software.amazon.awssdk:bom:2.16.13')
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
@@ -25,7 +27,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.projectlombok:lombok'
 	implementation 'com.squareup.okhttp3:okhttp'
-	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.4'
+	implementation 'software.amazon.awssdk:sns'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
