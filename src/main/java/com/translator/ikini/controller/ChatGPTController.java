@@ -16,9 +16,9 @@ public class ChatGPTController {
     private OpenAIService openAIService;
 
     @PostMapping("/ask")
-    public String askQuestion(@RequestParam String prompt) {
+    public String askQuestion(@RequestParam String translateText) {
         try {
-            return openAIService.getChatGPTResponse(prompt);
+            return openAIService.getChatGPTResponse(translateText);
         } catch (IOException e) {
             return "Error: " + e.getMessage();
         }

@@ -39,3 +39,10 @@ build/tmp/jar/MANIFEST.MF
 .gradle/8.8/executionHistory/executionHistory.lock
 .gradle/8.8/fileHashes/fileHashes.lock
 .gradle/buildOutputCleanup/buildOutputCleanup.lock
+build/tmp/compileJava/compileTransaction/stash-dir/ChatGPTController.class.uniqueId0
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/vcs.xml
+.DS_Store
