@@ -52,3 +52,8 @@ build/tmp/compileJava/compileTransaction/stash-dir/ChatGPTController.class.uniqu
 .gradle/8.8/executionHistory/executionHistory.lock
 .gradle/8.8/fileHashes/fileHashes.lock
 .gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/8.8/checksums/checksums.lock
+.gradle/8.8/executionHistory/executionHistory.lock
+.gradle/8.8/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+*.lock
