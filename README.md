@@ -34,3 +34,5 @@ Response
 }
 
 ```
+
+<img width="614" alt="Demo" src="https://github.com/gomathi-manakavalan/ikini/assets/62669989/8c519fec-a356-47b9-a904-9bee54a19365">
