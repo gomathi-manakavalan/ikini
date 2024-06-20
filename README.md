@@ -1,6 +1,10 @@
 This is a chatgpt Translator. 
 Translates any language messages into English.
 
+
+![WhatsApp Image 2024-06-19 at 11 44 43 PM](https://github.com/gomathi-manakavalan/ikini/assets/62669989/faa9548e-3e0b-4ee8-8957-456e441a948b)
+![WhatsApp Image 2024-06-19 at 11 44 43 PM](https://github.com/gomathi-manakavalan/ikini/assets/62669989/faa9548e-3e0b-4ee8-8957-456e441a948b)
+
 Request
 
 curl --location 'http://localhost:8080/api/chatgpt/ask' \
